@@ -3,6 +3,7 @@ package com.kamolovproducts.webhtml;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -37,11 +38,15 @@ public class MainActivity extends AppCompatActivity {
         mWebView = findViewById(R.id.webView);
         // Force links and redirects to open in the WebView instead of in a browser
         mWebView.setWebViewClient(new WebViewClient());
-
-
         // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+
+        // Увличение контента
+       /* mWebView.setInitialScale(2);
+        mWebView.getSettings().setBuiltInZoomControls(true);
+        mWebView.getSettings().setUseWideViewPort(true);*/
 
         mWebView.loadUrl("file:///android_asset/index.html");
 
@@ -73,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

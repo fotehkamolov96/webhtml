@@ -1364,7 +1364,7 @@ hr.stylehr {
 </style>
 </head>
 
-<body class="is-loading">
+<body>
 
 <div id="wrapper">
     <div id="main">
@@ -1469,8 +1469,7 @@ hr.stylehr {
                         <form id=" form02 " method=" post " class=" style1 ">
                             <div class=" inner ">
                                 <div class=" actions ">
-                                    <a name="instagram" aria-label="instagram" class="default-btn" href="https://instagram.com/omuzishinamoz" itemprop="significantLink> target="_blank" data-id="omuzishinamoz">Наш Инстаграм</a>
-                                    <a href="https://instagram.com/_u/omuzishinamoz" data-applink="instagram://profile">My Facebook Profile</a>
+                                    <a name="instagram" aria-label="instagram" class="default-btn" href="https://instagram.com/omuzishinamoz">Наш Инстаграм</a>
                                 </div>
                             </div>
                         </form>
@@ -1492,72 +1491,6 @@ hr.stylehr {
 </div>
 <script>
      (function() {
-    var on = addEventListener,
-        $body = document.body,
-        scrollToElement = function(e, style, duration) {
-            var y, cy, dy, start, easing, offset, f;
-            if (!e) y = 0;
-            else {
-                offset = (e.dataset.scrollOffset ? parseInt(e.dataset.scrollOffset) : 0) * parseFloat(getComputedStyle(document.documentElement).fontSize);
-                switch (e.dataset.scrollBehavior ? e.dataset.scrollBehavior : 'default') {
-                    case 'default':
-                    default:
-                        y = e.offsetTop + offset;
-                        break;
-                    case 'center':
-                        if (e.offsetHeight < window.innerHeight) y = e.offsetTop - ((window.innerHeight - e.offsetHeight) / 2) + offset;
-                        else y = e.offsetTop - offset;
-                        break;
-                    case 'previous':
-                        if (e.previousElementSibling) y = e.previousElementSibling.offsetTop + e.previousElementSibling.offsetHeight + offset;
-                        else y = e.offsetTop + offset;
-                        break;
-                }
-            }
-            if (!style) style = 'smooth';
-            if (!duration) duration = 350;
-            if (style == 'instant') {
-                window.scrollTo(0, y);
-                return;
-            }
-            start = Date.now();
-            cy = window.scrollY;
-            dy = y - cy;
-            switch (style) {
-                case 'linear':
-                    easing = function(t) {
-                        return t
-                    };
-                    break;
-                case 'smooth':
-                    easing = function(t) {
-                        return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                    };
-                    break;
-            }
-            f = function() {
-                var t = Date.now() - start;
-                if (t >= duration) window.scroll(0, y);
-                else {
-                    window.scroll(0, cy + (dy * easing(t / duration)));
-                    requestAnimationFrame(f);
-                }
-            };
-            f();
-        },
-        scrollToTop = function() {
-            scrollToElement(null);
-        },
-        unloadElements = function(parent) {};
-    on('load', function() {
-        setTimeout(function() {
-            $body.className = $body.className.replace(/\bis-loading\b/, 'is-playing');
-            setTimeout(function() {
-                $body.className = $body.className.replace(/\bis-playing\b/, 'is-ready');
-            }, 750);
-        }, 100);
-    });
-
     document.ondragstart = test;
     // //запрет на перетаскивание
     document.onselectstart = test;
