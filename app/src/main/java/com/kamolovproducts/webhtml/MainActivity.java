@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mWebView.getSettings().setBuiltInZoomControls(true);
         mWebView.getSettings().setUseWideViewPort(true);*/
 
-        progressBar = findViewById(R.id.progressBar);
+         progressBar = findViewById(R.id.progressBar);
         mWebView = findViewById(R.id.webView);
         // Force links and redirects to open in the WebView instead of in a browser
         mWebView.setWebViewClient(new WebViewClient());
